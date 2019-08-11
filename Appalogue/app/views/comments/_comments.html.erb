@@ -1,0 +1,30 @@
+<h2 style="margin-bottom: 10px;">Reviews</h2>
+<% @app.comments.each do |comment| %>
+  <div class="review">
+
+    <!-- Trash can icon : only appears if user is a Moderator or the review was made by the user -->
+    <% if current_user %>
+      <% if current_user.email == comment.username || current_user.moderator == true %>
+        <%= link_to '<button type="button" class="fa fa-trash commentButton"></button>'.html_safe, [comment.app, comment], method: :delete, data: { confirm: 'Are you sure?'} %>
+      <% end %>
+    <% end %>
+
+    <h3><b><%= comment.username %></b></h3>
+    <div class="star-rating" data-score=<%= comment.rating %> style="margin-top: -10px;"></div>
+    <p style="margin-top: 0px;">
+      <%= comment.body %>
+    </p></div>
+
+<% end %>
+
+<script>
+  $('.star-rating').raty({
+    path: '/assets/',
+    readOnly: true,
+    numberMax: 5,
+    score: function() {return $(this).attr('data-score');}
+  });
+
+  //reload stars/stop duplication
+  $('.star-rating').raty('reload');
+</script>

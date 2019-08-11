@@ -1,0 +1,36 @@
+<h1 style="font-size: 40px; margin: 0px">Advanced Search</h1>
+
+<%= form_for @search, html: {class: "pure-form"} do |search| %>
+
+
+	 <div class="field">
+    <%= search.label :description %><br>
+    <%= search.text_area :description %>
+  </div> 
+ 
+  <div class="field">
+    <%= search.label :price %><br>
+    <%= search.number_field :price, step: 0.01, min: 0.00, max: 1000.00 %>
+  </div>
+
+	<div class="field">
+    <%= search.label :platform %><br>
+    <%= search.text_field :platform %>
+  </div>
+  
+  <div class="field">
+    <%= search.label :version %><br>
+    <%= search.text_field :version%>
+  </div>
+
+  <div class="field">
+    <%= search.label :developer %><br>
+    <%= search.text_field :orgname%>
+  </div>
+
+  <br>
+	<div class="actions"><%= search.submit "Search", class: "infoButton"%></div>
+
+<% end%>
+
+<!-- <p><%= link_to 'Back', apps_path %></p> -->

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <!-- Head -->
+    <head>
+      <title>Appalogue</title>
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
+
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' %>
+      <!-- <%= stylesheet_link_tag    'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' %>-->
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'jquery.raty', 'data-turbolinks-track': 'reload' %>
+    </head>
+
+    <!-- Body -->
+    <body> 
+
+      <!-- Header: Includes logo and navigation elements -->
+      <header>
+        <div class="main-header">
+          
+          <!-- Logo -->
+          <%= link_to image_tag(asset_path('icon.png'), id: 'icon'), root_path %>
+          <!-- <img src="img/name-light.png" id="name" alt="icon"> : Alternate Logo -->
+
+          <!-- Log In -->
+          <% if current_user %>
+              <%= link_to '<button type="button" id="login">Log Out</button>'.html_safe, destroy_user_session_path, method: :delete%>
+          <% else %>
+              <%= link_to '<button type="button" id="login">Log In</button>'.html_safe, new_user_session_path %>
+          <% end %>
+
+          <!-- Search Bar : Desktop -->
+          <span class="search-desktop">
+            <%= form_tag(apps_path, :method => "get", class: 'navbar-form navbar-left') do %>
+            <div class="input-group">
+              <%= search_field_tag :search, params[:search], placeholder: "Search by App Name", class: "form-control" %>
+              <%= button_tag "", :class => 'fa fa-search',:name => nil%>
+            </div>
+            <% end %>
+            </span>
+
+            
+          </div>
+
+
+        <div class="sub-header"> 
+          <!-- Search Bar : Mobile -->
+          <div class="search-mobile">
+            <%= form_tag(apps_path, :method => "get",
+            class: 'navbar-form navbar-left') do %>
+            <div class="input-group">
+              <%= search_field_tag :search, params[:search], placeholder: "Search by App Name", class: "form-control" %>
+              <%= button_tag "", :class => 'fa fa-search',:name => nil%>
+              </div>
+              <% end %>
+            </span>
+          </div>
+          </div>
+        </div>
+
+      </header>
+
+      <!-- Content -->
+      <section id="section">
+<!--    <p class="notice"><%= notice %></p> -->
+        <p class="alert"><%= alert %></p>
+        <%= yield %>
+      </section>
+
+      <!-- Footer -->
+      <footer>
+        <p id="advanced-search"><%= link_to "<i class='fa fa-search'></i> Advanced Search".html_safe, new_search_path, :id => 'advLink'%><%= link_to "<i class='fa fa-question'></i> Help".html_safe, helps_path, :id => 'advLink', :style => 'margin-left: 20px;'%></p>
+        <p id="copyright">© 2019 by Math.Random(Name) Inc. All rights reserved.</p>
+      </footer>
+    </body>
+</html>
