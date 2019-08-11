@@ -8,11 +8,33 @@
       $(this).text(function(i, text){
           return text === "▶" ? "▼" : "▶";
       })
-
     });
 
+    // On search-app toggle
     $("#search-app").on("click", function(){
       $("#search-app-desc").toggleClass("hide");
+
+       $(this).text(function(i, text){
+        return text === "▶" ? "▼" : "▶";
+      })
+    });
+
+    // On review-app toggle
+    $("#review-app").on("click", function(){
+      $("#review-app-desc").toggleClass("hide");
+
+       $(this).text(function(i, text){
+        return text === "▶" ? "▼" : "▶";
+      })
+    });
+
+    // On review-app toggle
+    $("#good-app").on("click", function(){
+      $("#good-app-desc").toggleClass("hide");
+
+       $(this).text(function(i, text){
+        return text === "▶" ? "▼" : "▶";
+      })
     });
   });
 </script>
@@ -25,42 +47,70 @@
   <button class="open-button" id="submit-app">▶</button>
 </div>
 <div class="help-desc hide" id="submit-app-desc">
-  <p>The first step is to go the home page clicking the logo below in the upper left hand corner</p>
-  <%= image_tag(asset_path('icon.png')) %>
-  <p>The next step is to find the button displayed and circled below and begin creating your app</p>
-  <%= image_tag(asset_path('Help step.png')) %>
-  <p>Whoa!!! You made it this far? Great you're almost there! Okay now all  you need to do is fill in the given information that is shown in the image below and then you will have a working app ready for approval by an admin.  NOTE: Prices must be given only numerical values and you can only submit and app if all the provided fields are given data</p>
-  <%=  image_tag(asset_path('App Image.png')) %>
+  <ol>
+    <li>Navigate to the Home Page by clicking the logo in the upper left hand corner.</li>
+    <li>Find the "Submit an App" button at the end of the app list and click "Add Submission". You must be logged in to submit an app!</li>
+    <li>Fill out ALL the requested information and hit the "Create App" button. The requested fields include...</li>
+      <ul>
+        <li>The app's name</li>
+        <li>A short description of the app</li>
+        <li>Current version</li>
+        <li>Developer</li>
+        <li>Price</li>
+        <li>Platform(s)</li>
+        <li>Store Link</li>
+        <li>Icon / Image of App</li>
+      </ul> 
+<!--     <%=  image_tag(asset_path('App Image.png')) %> -->
+    <li>That's it! Your app will be submitted for admin approval. Once an admin approve it, it will show up on the home screen!</li>
+  </ol>
 </div>
+
 <div class="help-header">
   <h3>How do I seach for an app?</h3>
   <button class="open-button" id="search-app">▶</button>
 </div>
 
-
 <div class="help-desc hide" id="search-app-desc">
-		<p>If you haven't noticed yet the search bar is at the top right of the screen on any page on the website</p>
+  <p>There are two options in searching for apps in Appalogue...</p>
+  <ol>
+    <li>Type the name of the app you want to search for into the search bar in the top right corner.</li>
+    <li>Navigate to the "Advanced Search" option in the bottom left corner to search by other fields, including price, platform, and developer.</li>
+  </ol>
+<!-- 		<p>If you haven't noticed yet the search bar is at the top right of the screen on any page on the website</p>
     <%= image_tag(asset_path('Search Bar.png')) %>
     <p>Not cutting it for you? Don't fret! On Appalogue we have an option for advanced search which makes it incredibly easy to search for apps. Advanced search can be accessed by click the "Advanced Search" text displayed below in the bottom left hand corner</p>
     <%= image_tag(asset_path('Advanced Search.png')) %>
-    <div>Once you are on the advanced search page you can now start searching!!! You can search by the app's descrition, the price of the app, or the platform the app is provided on. If you cannot locate the app via advanced search than it does not exist. If you are having problems in this then make sure you contact one of the team members directly</div>
-    <%= image_tag(asset_path('Page.png')) %>
+    <p>Once you are on the advanced search page you can now start searching!!! You can search by the app's descrition, the price of the app, or the platform the app is provided on. If you cannot locate the app via advanced search than it does not exist. If you are having problems in this then make sure you contact one of the team members directly</p>
+    <%= image_tag(asset_path('Page.png')) %> -->
 </div>
 
+<div class="help-header">
+  <h3>How do I review an app?</h3>
+  <button class="open-button" id="review-app">▶</button>
+</div>
 
-<!-- <br>
-<h3>Why is this website so good?</h3>
-<p>We have a competitive hiring process that leaves us with the best people in the buisiness. With everyone on the team holding a PhD from an Ivy League school, it is hard to achieve a product that is anything less than excellent ;)</p>
-<br>
-<br>
+<div class="help-desc hide" id="review-app-desc">
+  <ol>
+    <li>Naviage to the app you want to review and click "More Info" under the app.</li>
+    <li>If you are logged in and haven't already reviewed the app, you should be able to select a star rating and leave a review!</li>
+  </ol>
+</div>
+
+<div class="help-header">
+  <h3>Why is this website so good?</h3>
+  <button class="open-button" id="good-app">▶</button>
+</div>
+
+<div class="help-desc hide" id="good-app-desc">
+  <p>We have a competitive hiring process that leaves us with the best people in the buisiness. With everyone on the team holding a PhD from an Ivy League school, it is hard to achieve a product that is anything less than excellent!</p>
+</div>
+
 <h2>Still confused? For 24/7 support, email anyone on the team. Your satisfaction is our number one priority.</h2>
-
 <div>
-
  <p>Jake Strictler: <a href="url"> sampleemail@fake.com</a></p> 
  <p>Brad Schmidtz: <a href="url"> sampleemail@fake.com</a></p> 
  <p>Nishil Shah: <a href="url"> sampleemail@fake.com</a></p> 
  <p>Dan Falokun: <a href="url"> sampleemail@fake.com</a></p> 
  <p>Ian Brighton: <a href="url"> sampleemail@fake.com</a></p> 
-
-</div> -->
+</div>

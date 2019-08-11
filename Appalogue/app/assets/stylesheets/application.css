@@ -62,6 +62,10 @@ footer {
   	z-index: 1;
 }
 
+p a {
+	text-decoration: none;
+}
+
 /* === ID's === */ /* ================================================================================================*/
 #icon {
 	width: 50px;
@@ -371,12 +375,12 @@ footer {
 .help-desc {
 	margin: 0px auto;
 	width: 90%;
-}
-
-.help-desc p {
 	text-align: left;
 }
 
+.help-desc img {
+	border: 2px #23272A solid;
+}
 
 .giant-header{
 	font-size: 40px;
