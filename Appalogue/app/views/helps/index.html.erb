@@ -28,9 +28,18 @@
       })
     });
 
-    // On review-app toggle
+    // On good toggle
     $("#good-app").on("click", function(){
       $("#good-app-desc").toggleClass("hide");
+
+       $(this).text(function(i, text){
+        return text === "▶" ? "▼" : "▶";
+      })
+    });
+
+    // On visible toggle
+    $("#visible-app").on("click", function(){
+      $("#visible-app-desc").toggleClass("hide");
 
        $(this).text(function(i, text){
         return text === "▶" ? "▼" : "▶";
@@ -40,6 +49,21 @@
 </script>
 
 <p id="notice"><%= notice %></p>
+
+<h1 class="giant-header">Help</h1>
+
+<div class="help-header">
+  <h3>Why isn't my app showing up in the directory?</h3>
+  <button class="open-button" id="visible-app">▶</button>
+</div>
+<div class="help-desc hide" id="visible-app-desc">
+  <p>Submitted apps in Appalogue require an administrator to approve them before they are shown to all users.</p>
+</div>
+
+<div class="help-header">
+  <h3>How do I seach for an app?</h3>
+  <button class="open-button" id="search-app">▶</button>
+</div>
 
 <h1 class="giant-header">Help</h1>
 <div class="help-header">
