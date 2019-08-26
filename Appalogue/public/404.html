@@ -3,80 +3,27 @@
     <!-- Head -->
     <head>
       <title>Appalogue</title>
-      <%= csrf_meta_tags %>
-      <%= csp_meta_tag %>
-
-      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-      <%= stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' %>
-      <!-- <%= stylesheet_link_tag    'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' %>-->
-      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-      <%= javascript_include_tag 'jquery.raty', 'data-turbolinks-track': 'reload' %>
+      <meta name="csrf-param" content="authenticity_token" />
+      <meta name="csrf-token" content="gapmPWrXK1Cr7r1bVES7+w41cCgntq59lSrnx9LNQF0SGrYI1YqUFYaIEGJJCDz6NVN7k/T3+3dQnSj35CJicw==" />
+      <link rel="stylesheet" media="all" href="/assets/application-82c0484f45c766ff05d9fd0eb483cd3ca9783e6555502e1c5a3609f22bb3d6cc.css" data-turbolinks-track="reload" />
+      <link rel="stylesheet" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+      <!-- <link rel="stylesheet" media="screen" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />-->
+      <script src="/assets/application-05ebe189bca5545391004c178d17011daa401b0b5be10d3e73e1de2bbf0ea161.js" data-turbolinks-track="reload"></script>
+      <script src="/assets/jquery.raty-d148157fe1cd4733962ec1502700040a6d4c3d54cfc1000fcba8cde7768474c5.js" data-turbolinks-track="reload"></script>
+      <link rel="shortcut icon" type="image/x-icon" href="/assets/icon-0af58f9a8839165ba436e4070de1760aeb37f3c7ffb509ff53d5cea2ea5ba407.png" />
     </head>
 
     <!-- Body -->
     <body> 
 
-      <!-- Header: Includes logo and navigation elements -->
-      <header>
-        <div class="main-header">
-          
-          <!-- Logo -->
-          <%= link_to image_tag(asset_path('icon.png'), id: 'icon'), root_path %>
-          <!-- <img src="img/name-light.png" id="name" alt="icon"> : Alternate Logo -->
-
-          <!-- Log In -->
-          <% if current_user %>
-              <%= link_to '<button type="button" id="login">Log Out</button>'.html_safe, destroy_user_session_path, method: :delete%>
-          <% else %>
-              <%= link_to '<button type="button" id="login">Log In</button>'.html_safe, new_user_session_path %>
-          <% end %>
-
-          <!-- Search Bar : Desktop -->
-          <span class="search-desktop">
-            <%= form_tag(apps_path, :method => "get", class: 'navbar-form navbar-left') do %>
-            <div class="input-group">
-              <%= search_field_tag :search, params[:search], placeholder: "Search by App Name", class: "form-control" %>
-              <%= button_tag "", :class => 'fa fa-search',:name => nil%>
-            </div>
-            <% end %>
-            </span>
-
-            
-          </div>
-
-
-        <div class="sub-header"> 
-          <!-- Search Bar : Mobile -->
-          <div class="search-mobile">
-            <%= form_tag(apps_path, :method => "get",
-            class: 'navbar-form navbar-left') do %>
-            <div class="input-group">
-              <%= search_field_tag :search, params[:search], placeholder: "Search by App Name", class: "form-control" %>
-              <%= button_tag "", :class => 'fa fa-search',:name => nil%>
-              </div>
-              <% end %>
-            </span>
-          </div>
-          </div>
-        </div>
-
-      </header>
-
       <!-- Content -->
       <section id="section">
           <div class="dialog">
             <div>
-              <h1>The page you were looking for doesn't exist.</h1>
+              <h1>The page you were looking for doesn't exist!</h1>
               <p>You may have mistyped the address or the page may have moved.</p>
             </div>
-            <p>If you are the application owner check the logs for more information.</p>
           </div>
       </section>
-
-      <!-- Footer -->
-      <footer>
-        <p id="advanced-search"><%= link_to "<i class='fa fa-search'></i> Advanced Search".html_safe, new_search_path, :id => 'advLink'%><%= link_to "<i class='fa fa-question'></i> Help".html_safe, helps_path, :id => 'advLink', :style => 'margin-left: 20px;'%></p>
-        <p id="copyright">© 2019 by Math.Random(Name) Inc. All rights reserved.</p>
-      </footer>
     </body>
 </html>
